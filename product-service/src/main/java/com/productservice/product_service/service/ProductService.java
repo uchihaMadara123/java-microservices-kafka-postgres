@@ -17,7 +17,6 @@ public class ProductService {
 
     public CreateProductRequest createProduct(CreateProductRequest product){
         ProductEntity productEntity = ProductUtils.convertToEntity(product);
-        this.productRepository.save(productEntity);
-        return product;
+        return ProductUtils.convertToDto(this.productRepository.save(productEntity));
     }
 }
