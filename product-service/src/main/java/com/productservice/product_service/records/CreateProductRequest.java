@@ -3,7 +3,6 @@ package com.productservice.product_service.records;
 import lombok.Builder;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Builder
 public record CreateProductRequest(
@@ -13,6 +12,7 @@ public record CreateProductRequest(
         String category,
         String brand,
         BigDecimal price,
-        String status
+        String status,
+        Long quantity
 ) {
 }

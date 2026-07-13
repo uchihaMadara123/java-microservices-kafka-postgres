@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface StockRepository extends JpaRepository<StockEntity,Long> {
 
     public StockEntity findByProductName(String productName);
+
+    public StockEntity findByProductId(Long productId);
 }
