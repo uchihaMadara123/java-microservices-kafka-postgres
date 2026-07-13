@@ -1,6 +1,9 @@
 package com.netguides.stock_service.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -8,6 +11,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "stock",
         schema = "stock_db_schema")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class StockEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +23,13 @@ public class StockEntity {
     private String productName;
 
     @Column(name = "available_quantity")
-    private Integer availableQuantity;
+    private Long availableQuantity;
+
+    @Column(name = "product_id")
+    private Long productId;
 
     @Column(name = "reserved_quantity")
-    private Integer reservedQuantity;
+    private Long reservedQuantity;
 
     @CreationTimestamp
     @Column(name = "created_at")
@@ -42,19 +51,27 @@ public class StockEntity {
         this.productName = productName;
     }
 
-    public Integer getAvailableQuantity() {
+    public Long getAvailableQuantity() {
         return availableQuantity;
     }
 
-    public void setAvailableQuantity(Integer availableQuantity) {
+    public void setAvailableQuantity(Long availableQuantity) {
         this.availableQuantity = availableQuantity;
     }
 
-    public Integer getReservedQuantity() {
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public Long getReservedQuantity() {
         return reservedQuantity;
     }
 
-    public void setReservedQuantity(Integer reservedQuantity) {
+    public void setReservedQuantity(Long reservedQuantity) {
         this.reservedQuantity = reservedQuantity;
     }
 

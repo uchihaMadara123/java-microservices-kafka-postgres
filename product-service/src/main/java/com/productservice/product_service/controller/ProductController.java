@@ -1,5 +1,6 @@
 package com.productservice.product_service.controller;
 
+import com.netguides.base_domains.base_domains.records.ProductStockResponse;
 import com.productservice.product_service.records.CreateProductRequest;
 import com.productservice.product_service.service.ProductService;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +27,8 @@ public class ProductController {
     }
 
 
-    @GetMapping("/test")
-    public String getProduct() {
-
-        return "Working";
+    @GetMapping("/product/stock/{productId}")
+    public ProductStockResponse getProductInventory(@PathVariable Long productId) {
+        return productService.getProductStock(productId);
     }
 }
