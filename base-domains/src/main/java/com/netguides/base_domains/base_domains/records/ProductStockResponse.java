@@ -5,5 +5,6 @@ import lombok.Builder;
 @Builder
 public record ProductStockResponse(Long productid,
                                    String productName,
-                                   Long quantity) {
+                                   Long quantity,
+                                    String message) {
 }
