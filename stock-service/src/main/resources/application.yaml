@@ -25,6 +25,13 @@ spring:
         spring.json.trusted.packages: "*"
     topic:
       name: order_topics
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
 
 server:
   port: 8082
