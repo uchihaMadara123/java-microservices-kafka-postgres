@@ -33,13 +33,9 @@ public class ProductController {
 
 
     @GetMapping("/product/stock/{productId}")
-    @CircuitBreaker(name="Stock-Get_product",fallbackMethod = "getProductInventoryFallBack")
     public ProductStockResponse getProductInventory(@PathVariable Long productId) {
         return productService.getProductStock(productId);
     }
 
-    public ProductStockResponse getProductInventoryFallBack(Long productId,Exception ex){
-        logger.info("Stock serive is unavailable");
-        return ProductStockResponse.builder().message("Stock Service is not Available").build();
-    }
+
 }
