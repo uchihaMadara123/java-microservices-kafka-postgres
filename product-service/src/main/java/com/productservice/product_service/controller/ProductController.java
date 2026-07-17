@@ -22,7 +22,6 @@ public class ProductController {
 
     @GetMapping("/product/{productId}")
     public CreateProductRequest getProduct(@PathVariable Long productId) {
-
         return null;
     }
 
