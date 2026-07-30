@@ -1,12 +1,6 @@
 spring:
   application:
     name: order-service
-  datasource:
-    url: jdbc:postgresql://localhost:5432/order_db
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -21,14 +15,5 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     topic:
        name: order_topics
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: localhost
-    prefer-ip-address: true
-
 server:
   port: 8081
