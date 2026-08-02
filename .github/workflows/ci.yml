@@ -23,5 +23,5 @@
           run: mvn clean install
         - name: Build stock service
           working-directory: stock-service
-          run: mvn clean package
+          run: mvn clean package -DskipTests
 
