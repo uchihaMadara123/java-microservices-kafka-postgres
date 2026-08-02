@@ -18,6 +18,9 @@
             distribution: temurin
             java-version: '21'
             cache: maven
+        - name: Build Base Domains
+          working-directory: base-domains
+          run: mvn clean install
         - name: Build stock service
           working-directory: stock-service
           run: mvn clean package
