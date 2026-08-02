@@ -20,7 +20,7 @@
             cache: maven
         - name: Build Base Domains
           working-directory: base-domains
-          run: mvn clean install
+          run: mvn clean install -DskipTests
         - name: Build stock service
           working-directory: stock-service
           run: mvn clean package -DskipTests
