@@ -21,9 +21,30 @@ jobs:
         working-directory: base-domains
         run: mvn clean install -DskipTests
 
+      # ---------------- PRODUCT SERVICE ----------------
+
+      - name: Build Product Service
+        working-directory: product-service
+        run: mvn clean package -DskipTests
+
+      # ---------------- STOCK SERVICE ----------------
       - name: Build stock service
         working-directory: stock-service
         run: mvn clean package -DskipTests
+
+      # ---------------- ORDER SERVICE ----------------
+
+      - name: Build Order Service
+        working-directory: order-service
+        run: mvn clean package -DskipTests
+
+      # ---------------- EMAIL SERVICE ----------------
+
+      - name: Build Email Service
+        working-directory: email-service
+        run: mvn clean package -DskipTests
+
+
 
       - name: Set up Docker Buildx
         id: buildx
@@ -35,10 +56,34 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Product Service
+        uses: docker/build-push-action@v6
+        with:
+          context: ./product-service
+          file: ./product-service/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/product-service:latest
+
+      - name: Build and Push Stock Service
         uses: docker/build-push-action@v6
         with:
           context: ./stock-service
           file: ./stock-service/Dockerfile
           push: true
           tags:  ${{ secrets.DOCKERHUB_USERNAME }}/stock-service:latest
+
+      - name: Build and Push Order Service
+        uses: docker/build-push-action@v6
+        with:
+          context: ./order-service
+          file: ./order-service/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/order-service:latest
+
+      - name: Build and Push Email Service
+        uses: docker/build-push-action@v6
+        with:
+          context: ./email-service
+          file: ./email-service/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/email-service:latest
