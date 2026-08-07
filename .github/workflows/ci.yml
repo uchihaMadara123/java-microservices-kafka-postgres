@@ -47,8 +47,10 @@ jobs:
         working-directory: order-service
         run: mvn clean package -DskipTests
 
+
       # ---------------- EMAIL SERVICE ----------------
 
       - name: Build Email Service
         working-directory: email-service
         run: mvn clean package -DskipTests
+
