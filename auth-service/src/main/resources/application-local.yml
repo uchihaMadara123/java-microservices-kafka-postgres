@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

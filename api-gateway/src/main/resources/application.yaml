@@ -15,6 +15,5 @@ eureka:
     service-url:
       defaultZone: http://discovery-server:8761/eureka/
   instance:
-    hostname: localhost
     prefer-ip-address: true
 

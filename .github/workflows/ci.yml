@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Base Domains
         working-directory: base-domains
-        run: mvn clean package -DskipTests
+        run: mvn clean install -DskipTests
 
       # ---------------- PRODUCT SERVICE ----------------
 
@@ -52,5 +52,11 @@ jobs:
 
       - name: Build Email Service
         working-directory: email-service
+        run: mvn clean package -DskipTests
+
+      # ---------------- AUTH SERVICE ----------------
+
+      - name: Build AUTH Service
+        working-directory: auth-service
         run: mvn clean package -DskipTests
 
