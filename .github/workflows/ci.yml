@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Base Domains
         working-directory: base-domains
-        run: mvn clean package -DskipTests
+        run: mvn clean install -DskipTests
 
       # ---------------- PRODUCT SERVICE ----------------
 
