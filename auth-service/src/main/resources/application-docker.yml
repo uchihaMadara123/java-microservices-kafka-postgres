@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: stock-service
+  datasource:
+    url: jdbc:postgresql://postgres-recovery:5432/auth_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka/

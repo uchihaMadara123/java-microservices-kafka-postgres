@@ -54,3 +54,9 @@ jobs:
         working-directory: email-service
         run: mvn clean package -DskipTests
 
+      # ---------------- AUTH SERVICE ----------------
+
+      - name: Build AUTH Service
+        working-directory: auth-service
+        run: mvn clean package -DskipTests
+
