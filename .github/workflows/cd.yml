@@ -28,7 +28,7 @@ jobs:
       - name: Build API Gateway
         working-directory: api-gateway
         run: mvn clean package -DskipTests
-        
+
       # ---------------- BASE DOMAINS ----------------
       - name: Build Base Domains
         working-directory: base-domains
@@ -100,3 +100,19 @@ jobs:
           file: ./email-service/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/email-service:latest
+
+      - name: Build and Eureka Server
+        uses: docker/build-push-action@v6
+        with:
+          context: ./discovery-server
+          file: ./ediscovery-server/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/discovery-server:latest
+
+      - name: Build and API Gateway
+        uses: docker/build-push-action@v6
+        with:
+          context: ./api-gateway
+          file: ./api-gateway/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/api-gateway:latest
