@@ -105,7 +105,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./discovery-server
-          file: ./ediscovery-server/Dockerfile
+          file: ./discovery-server/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/discovery-server:latest
 
