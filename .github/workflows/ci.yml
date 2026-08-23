@@ -23,6 +23,19 @@ jobs:
           java-version: '21'
           cache: maven
 
+      # ---------------- EUREKA SERVER ----------------
+
+      - name: Build Eureka Server
+        working-directory: discovery-server
+        run: mvn clean package -DskipTests
+
+      # ---------------- API-GATEWAY ----------------
+
+      - name: Build API Gateway
+        working-directory: api-gateway
+        run: mvn clean package -DskipTests
+
+
       # ---------------- BASE DOMAINS ----------------
 
       - name: Build Base Domains
@@ -54,9 +67,7 @@ jobs:
         working-directory: email-service
         run: mvn clean package -DskipTests
 
-      # ---------------- AUTH SERVICE ----------------
 
-      - name: Build AUTH Service
-        working-directory: auth-service
-        run: mvn clean package -DskipTests
+
+
 
